@@ -1,0 +1,10 @@
+<ion-view view-title="Streams">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="subscription in $parent.subscriptions" type="item-text-wrap" href="#/tab/stream/{{subscription.stream.key}}">
+          <h2>{{subscription.stream.name}}</h2>
+          <span ng-if="subscription.missedSlaps" class="badge badge-positive">0</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

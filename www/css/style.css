@@ -1,0 +1,10 @@
+/* Empty. Add your own CSS if you like */
+.pane, .view {
+	background: url('../img/background.png');
+}
+
+.search__gif img {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+}

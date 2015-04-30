@@ -1,0 +1,9 @@
+<ion-view view-title="{{link.name}}">
+    <ion-content>
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+            <ion-slide ng-repeat="link in links">
+                <iframe ng-src="{{link.url}}"></iframe>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

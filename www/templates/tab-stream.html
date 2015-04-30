@@ -1,0 +1,11 @@
+<ion-view view-title="{{stream.name}}">
+  <ion-content>
+      <ion-list>
+          <ion-item ng-repeat="link in $parent.links" type="item-text-wrap" href="#/tab/links/{{::$parent.key}}/{{::link.id}}/{{::$parent.currentPage}}">
+              <h2>{{link.comment}}</h2>
+              <p>Slapped</p>
+          </ion-item>
+      </ion-list>
+      <ion-infinite-scroll ng-if="$parent.canLoadMore" on-infinite="$parent.load()" distance="1%"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>
