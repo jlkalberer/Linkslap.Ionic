@@ -1,5 +1,7 @@
 angular.module('linkslap.controllers')
-.controller('SearchCtrl', ['$scope', 'Restangular', '$timeout', function ($scope, rest, $timeout) {
+.controller('SearchCtrl', [
+'$scope', 'Restangular', '$timeout', '$ionicScrollDelegate', '$state',
+function ($scope, rest, $timeout, $ionicScrollDelegate, $state) {
     $scope.search = '';
     $scope.pageCount = [];
     $scope.currentPage = 1;
@@ -11,7 +13,6 @@ angular.module('linkslap.controllers')
     $scope.searchGif = function () {
         if ($scope.currentPage === 1) {
             $scope.results = [];
-            $scope.$broadcast('scroll.scrollTop');
         }
 
         if (!$scope.search) {
@@ -32,6 +33,7 @@ angular.module('linkslap.controllers')
                     $scope.totalCount = result.total;
                     $scope.pageCount = Math.ceil(result.total / $scope.limit);
                     $scope.results = result.results;
+                    $ionicScrollDelegate.scrollTop(false);
                 } else {
                     $scope.results = $scope.results.concat(result.results);
                 }

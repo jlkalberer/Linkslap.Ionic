@@ -1,0 +1,18 @@
+<div class="media__container">
+    <div ng-if='isVideo || isImgurGif'>
+        <video autoplay='autoplay' preload='auto' loop='loop' ng-if='!loadError'>
+            <source ng-if="mp4" ng-src='{{mp4}}' type='video/mp4' />
+            <source ng-if="webm" ng-src='{{webm}}' type='video/webm' />
+            <source ng-if="ogg" ng-src='{{ogg}}' type='video/ogg' />
+        </video>
+        <div class='media-image' ng-style='image' ng-if='loadError && playing'></div>
+        <div ng-transclude></div>
+    </div>
+    <div ng-if="isImage && !isImgurGif">
+        <div class='media-image' ng-style='image'></div>
+        <div ng-transclude></div>
+    </div>
+    <div ng-if="!isVideo && !isImage && !hidePage">
+        <iframe class="webPageFrame" ng-src="{{source}}"></iframe>
+    </div>
+</div>

@@ -9,8 +9,10 @@
         <ion-list ng-if="$parent.results">
             <div class="search__gif" ng-repeat="gif in $parent.results">
                 <div class="search-wrapper">
-                    <div class="search-content" ng-mouseenter="result.showOptions = true" ng-mouseleave="result.showOptions = false">
-                        <gif thumb="{{gif.thumbnailUrl}}" source="{{gif.url}}" />
+                    <div class="search-content">
+                        <gif thumb="{{gif.thumbnailUrl}}" source="{{gif.url}}">
+                            <button ui-sref="tab.share({thumb: gif.thumbnailUrl, url: gif.url})" class="button icon ion-share button-positive btn__share"></button>
+                        </gif>
                     </div>
                 </div>
             </div>

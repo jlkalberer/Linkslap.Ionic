@@ -6,7 +6,8 @@
             transclude: true,
             scope: {
                 'source': '@',
-                'thumb': '@'
+                'thumb': '@',
+                'autoplay': '@'
             },
             restrict: 'E',
             replace: true,
@@ -24,7 +25,7 @@
                             "<div ng-transclude></div>" +
                         "</div>",
             link: function (scope, element) {
-                scope.playing = false;
+                scope.playing = !(!scope.autoplay);
                 scope.source = scope.source.replace('.gif', '');
                 scope.mp4 = $sce.trustAsResourceUrl(scope.source + '.mp4');
                 scope.webm = $sce.trustAsResourceUrl(scope.source + '.webm');

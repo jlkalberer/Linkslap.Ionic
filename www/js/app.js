@@ -126,6 +126,16 @@ angular.module('linkslap', [
             }
         }
     })
+    .state('tab.share', {
+        authenticate: true,
+        url: '/share/:thumb/:url',
+        views: {
+            'tab-search': {
+                templateUrl: 'templates/tab-share.html',
+                controller: 'ShareCtrl'
+            }
+        }
+    })
 
     .state('tab.streams', {
         authenticate: true,
