@@ -3,7 +3,15 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('linkslap', ['ionic', 'linkslap.controllers', 'linkslap.services', 'ngStorage', 'restangular', 'img-src-ondemand'])
+angular.module('linkslap', [
+    'ionic',
+    'linkslap.controllers',
+    'linkslap.services',
+    'linkslap.directives',
+    'ngStorage',
+    'restangular',
+    'img-src-ondemand'
+])
 
 .run(function ($ionicPlatform, $rootScope, auth, $ionicHistory, $state, $localStorage, $ionicActionSheet) {
     $ionicPlatform.ready(function () {
@@ -141,7 +149,7 @@ angular.module('linkslap', ['ionic', 'linkslap.controllers', 'linkslap.services'
     })
     .state('tab.links', {
         authenticate: true,
-        url: '/links/:streamKey/:currentLink/:page',
+        url: '/links/:streamKey/:linkId/:page',
         views: {
             'tab-streams': {
                 templateUrl: 'templates/tab-links.html',

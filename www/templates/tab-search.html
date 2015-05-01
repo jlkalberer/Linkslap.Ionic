@@ -5,10 +5,14 @@
             <input type="search" placeholder="Search" placeholder="Search gif" data-ng-model="$parent.search" ng-model-options="{debounce: 500}">
         </label>
     </ion-nav-title>
-    <ion-content class="padding">
+    <ion-content class="search__gifs">
         <ion-list ng-if="$parent.results">
             <div class="search__gif" ng-repeat="gif in $parent.results">
-                <img ng-src="{{gif.thumbnailUrl}}" />
+                <div class="search-wrapper">
+                    <div class="search-content" ng-mouseenter="result.showOptions = true" ng-mouseleave="result.showOptions = false">
+                        <gif thumb="{{gif.thumbnailUrl}}" source="{{gif.url}}" />
+                    </div>
+                </div>
             </div>
         </ion-list>
         <ion-infinite-scroll ng-if="$parent.canLoadMore()" on-infinite="$parent.loadMore()" distance="1%"></ion-infinite-scroll>

@@ -1,9 +1,16 @@
-<ion-view view-title="{{link.name}}">
+<ion-view>
+    <ion-nav-title>
+        {{link.comment}}
+    </ion-nav-title>
     <ion-content>
-        <ion-slide-box on-slide-changed="slideChanged(index)">
-            <ion-slide ng-repeat="link in links">
-                <iframe ng-src="{{link.url}}"></iframe>
-            </ion-slide>
-        </ion-slide-box>
+        <iframe ng-if="!isImage" ng-src="{{link.url}}"></iframe>
+        <img class="img-responsive" ng-if="isImage" ng-src="{{link.url}}" />
+        <!--<ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
+                <ion-slide ng-repeat="link in links">
+                    <div>
+                        <h1>{{link.url}}</h1>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>-->
     </ion-content>
 </ion-view>

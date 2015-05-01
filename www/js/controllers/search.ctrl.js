@@ -14,12 +14,16 @@ angular.module('linkslap.controllers')
             $scope.$broadcast('scroll.scrollTop');
         }
 
-        $scope.searching = true;
-
         if (!$scope.search) {
             $scope.pageCount = [];
             return;
         }
+
+        if ($scope.searching) {
+            return;
+        }
+
+        $scope.searching = true;
 
         rest.oneUrl('/api/gifs/search')
             .get({ query: $scope.search, page: ($scope.currentPage - 1), limit: $scope.limit, sfw: !$scope.nsfw })
@@ -32,10 +36,9 @@ angular.module('linkslap.controllers')
                     $scope.results = $scope.results.concat(result.results);
                 }
 
-                $scope.searching = false;
-
-                $timeout(function() {
+                $timeout(function () {
                     $scope.$broadcast('scroll.infiniteScrollComplete');
+                    $scope.searching = false;
                 }, 500);
             });
 

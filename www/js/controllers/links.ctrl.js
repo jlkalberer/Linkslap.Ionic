@@ -4,6 +4,7 @@ angular.module('linkslap.controllers')
         linkId = $stateParams.linkId,
         currentPage = $stateParams.page - 1;
 
+    $scope.links = [{}];
     $scope.slideIndex = 0;
 
     $scope.load = function () {
@@ -19,10 +20,16 @@ angular.module('linkslap.controllers')
     $scope.slideChanged = function(index) {
     };
 
-    $scope.load().then(function (response) {
-        $scope.links = response;
-        $scope.slideChanged(0);
+    rest.one("api/link", linkId).get().then(function(link) {
+        $scope.link = link;
+
+        $scope.isImage = link.url.match(/\.(jpeg|jpg|gif|png)$/) != null;
     });
+
+    //$scope.load().then(function (response) {
+    //    $scope.links = response;
+    //    $scope.slideChanged(0);
+    //});
 
     $scope.loadPrevious = function () {
         currentPage -= 1;
