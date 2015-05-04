@@ -3,6 +3,25 @@
 	background: url('../img/background.png');
 }
 
+/* Full width select */
+.item-select-full select {
+  border: 0;
+  width: 100%;
+  display: block;
+  padding-top: 2px;
+  padding-left: 0;
+  height: 34px;
+  color: #111;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 16px; }
+  .item-select-full select.invalid {
+    color: #aaaaaa; }
+  .item-select-full select option {
+    color: #111; }
+  .item-select-full select option.default-value {
+    display: none; }
+
 .img-responsive {
     width: 100%;
     height: auto;

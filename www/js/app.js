@@ -126,11 +126,11 @@ angular.module('linkslap', [
             }
         }
     })
-    .state('tab.share', {
+    .state('tab.search.share', {
         authenticate: true,
-        url: '/share/:thumb/:url',
+        url: '/share/:url',
         views: {
-            'tab-search': {
+            'tab-search@tab': {
                 templateUrl: 'templates/tab-share.html',
                 controller: 'ShareCtrl'
             }
@@ -147,21 +147,21 @@ angular.module('linkslap', [
             }
         }
     })
-    .state('tab.stream', {
+    .state('tab.streams.stream', {
         authenticate: true,
         url: '/stream/:streamKey',
         views: {
-            'tab-streams': {
+            'tab-streams@tab': {
                 templateUrl: 'templates/tab-stream.html',
                 controller: 'StreamCtrl'
             }
         }
     })
-    .state('tab.links', {
+    .state('tab.streams.stream.links', {
         authenticate: true,
-        url: '/links/:streamKey/:linkId/:page',
+        url: '/links/:linkId/:page',
         views: {
-            'tab-streams': {
+            'tab-streams@tab': {
                 templateUrl: 'templates/tab-links.html',
                 controller: 'LinksCtrl'
             }

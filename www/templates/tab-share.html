@@ -1,11 +1,27 @@
 <ion-view view-title="Share">
-    <ion-content>
-        <div class="search__gif">
+    <ion-content scroll="false" class="padding">
+        <div class="search__gif" style="padding:10px 60px;">
             <div class="search-wrapper">
                 <div class="search-content">
-                    <gif thumb="{{thumb}}" source="{{url}}" autoplay="true"/>
+                    <gif thumb="{{thumb}}" source="{{url}}" autoplay="true" />
                 </div>
             </div>
         </div>
+        <form name="shareForm" ng-submit="share()">
+            <div class="list">
+                <label class="item item-input item-select-full">
+                    <select ng-model="$parent.selectedStream" required ng-class="{ 'invalid' : !$parent.selectedStream }"
+                            ng-options="stream.key as stream.name for stream in streams">
+                        <option value="" selected="selected" disabled class="default-value">Select Streams to share to</option>
+                    </select>
+                </label>
+                <label class="item item-input">
+                    <input type="text" ng-model="comment" placeholder="Comment">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit" ng-disabled="!canSubmit() || sending">Share</button>
+                </label>
+            </div>
+        </form>
     </ion-content>
 </ion-view>

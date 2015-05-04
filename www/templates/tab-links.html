@@ -1,6 +1,6 @@
 <ion-view>
     <ion-nav-title>
-        {{link.comment}}
+        {{link.comment || link.url}}
     </ion-nav-title>
     <ion-content scroll="false">
         <media source="{{link.url}}" autoplay="true" />
