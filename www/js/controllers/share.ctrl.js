@@ -1,4 +1,4 @@
-angular.module('linkslap.controllers')
+﻿angular.module('linkslap.controllers')
 .controller('ShareCtrl', [
 '$scope',
 'Restangular',

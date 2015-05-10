@@ -1,4 +1,4 @@
-// Ionic Starter App
+﻿// Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -82,13 +82,16 @@ angular.module('linkslap', [
 .config(function($sceProvider) {
     $sceProvider.enabled(false);
 })
+.config(function ($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
+})
 /*.config(function($compileProvider){
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
 })*/
 .config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
 
-    //RestangularProvider.setBaseUrl('https://linkslap.me/');
-    RestangularProvider.setBaseUrl('http://localhost:50328/');
+    RestangularProvider.setBaseUrl('https://linkslap.me/');
+    //RestangularProvider.setBaseUrl('http://localhost:50328/');
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -160,6 +163,9 @@ angular.module('linkslap', [
     .state('tab.streams.stream.links', {
         authenticate: true,
         url: '/links/:linkId/:page',
+        params: {
+            link: null
+        },
         views: {
             'tab-streams@tab': {
                 templateUrl: 'templates/tab-links.html',

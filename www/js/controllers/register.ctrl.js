@@ -1,4 +1,4 @@
-angular.module('linkslap.controllers')
+﻿angular.module('linkslap.controllers')
 .controller('RegisterCtrl', ['$scope', 'auth', '$ionicHistory', '$state', function ($scope, auth, $ionicHistory, $state) {
     // Form data for the login modal
     $scope.registering = false;

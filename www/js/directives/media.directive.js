@@ -25,6 +25,7 @@
             replace: true,
             templateUrl: "templates/media.html",
             link: function (scope) {
+                scope.isWindows = window.device && device.platform == 'windows';
                 scope.playing = !(!scope.autoplay);
 
                 scope.$watch('source', function() {
@@ -40,10 +41,10 @@
 
 
                     if (scope.isImgurGif) {
-                        scope.src = scope.src.replace('.gif', '');
-                        scope.mp4 = $sce.trustAsResourceUrl(scope.src + '.mp4');
-                        scope.webm = $sce.trustAsResourceUrl(scope.src + '.webm');
-                        scope.ogg = $sce.trustAsResourceUrl(scope.src + '.ogg');
+                        var src = scope.src.replace('.gif', '');
+                        scope.mp4 = $sce.trustAsResourceUrl(src + '.mp4');
+                        scope.webm = $sce.trustAsResourceUrl(src + '.webm');
+                        scope.ogg = $sce.trustAsResourceUrl(src + '.ogg');
                     }
 
                     if (scope.isVideo) {
@@ -57,7 +58,7 @@
                     }
 
                     if (scope.isVideo || scope.isImage) {
-                        scope.image = { 'background-image': 'url(' + $sce.trustAsResourceUrl(scope.src + '.gif') + ')' };
+                        scope.image = { 'background-image': 'url(' + scope.src + ')' };
                     }
                 });
             }

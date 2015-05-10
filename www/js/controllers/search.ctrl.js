@@ -1,4 +1,4 @@
-angular.module('linkslap.controllers')
+﻿angular.module('linkslap.controllers')
 .controller('SearchCtrl', [
 '$scope', 'Restangular', '$timeout', '$ionicScrollDelegate', '$state',
 function ($scope, rest, $timeout, $ionicScrollDelegate, $state) {

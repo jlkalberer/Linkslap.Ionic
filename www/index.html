@@ -6,6 +6,9 @@
     <title></title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    
+    <script src="js/winstore-jscompat.js"></script>
+
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -37,18 +40,19 @@
 
     <!-- Services -->
     <script src="js/services/auth.service.js"></script>
+    <script src="js/services/push.service.js"></script>
     
     <!-- Directives -->
     <script src="js/directives/gif.directive.js"></script>
     <script src="js/directives/media.directive.js"></script>
 
 </head>
-<body ng-app="linkslap">
+<body ng-app="linkslap" class="platform-windows platform-cordova platform-webview">
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
     <ion-nav-bar class="bar-stable">
-        <ion-nav-back-button state-nav-back-button>
+        <ion-nav-back-button>
         </ion-nav-back-button>
     </ion-nav-bar>
     <!--

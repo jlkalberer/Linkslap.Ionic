@@ -1,4 +1,4 @@
-angular.module('linkslap.controllers')
+﻿angular.module('linkslap.controllers')
 .controller('StreamCtrl', ['$scope', 'Restangular', '$stateParams', '$localStorage', '$timeout', function ($scope, rest, $stateParams, storage, $timeout) {
     $scope.key = $stateParams.streamKey;
     $scope.currentPage = 0;

@@ -1,7 +1,6 @@
 'use strict';
 
 (function() {
-
     /**
      * @ngdoc overview
      * @name ngStorage
@@ -31,7 +30,6 @@
         return [
             '$rootScope',
             '$window',
-
             function(
                 $rootScope,
                 $window
@@ -66,16 +64,18 @@
 
                 $rootScope.$watch(function() {
                     _debounce || (_debounce = setTimeout(function() {
+                        var temp$storage = angular.copy(_last$storage);
                         _debounce = null;
 
                         if (!angular.equals($storage, _last$storage)) {
+
                             angular.forEach($storage, function(v, k) {
                                 angular.isDefined(v) && '$' !== k[0] && webStorage.setItem('ngStorage-' + k, angular.toJson(v));
 
-                                delete _last$storage[k];
+                                delete temp$storage[k];
                             });
 
-                            for (var k in _last$storage) {
+                            for (var k in temp$storage) {
                                 webStorage.removeItem('ngStorage-' + k);
                             }
 

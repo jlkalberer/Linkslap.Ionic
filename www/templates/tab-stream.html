@@ -1,7 +1,7 @@
-<ion-view view-title="{{stream.name}}">
+﻿<ion-view view-title="{{stream.name}}">
   <ion-content>
       <ion-list>
-          <ion-item ng-repeat="link in $parent.links" type="item-text-wrap" href="#/tab/streams/stream/{{::$parent.key}}/links/{{::link.id}}/{{::$parent.currentPage}}">
+          <ion-item ng-repeat="link in $parent.links" type="item-text-wrap" ui-sref="tab.streams.stream.links({ streamKey: link.streamKey, linkId: link.id, link: link })">
               <h2>{{link.comment}}</h2>
               <p>Slapped by {{link.userName}}</p>
           </ion-item>

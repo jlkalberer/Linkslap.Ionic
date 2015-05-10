@@ -1,9 +1,10 @@
-angular.module('linkslap.controllers')
+﻿angular.module('linkslap.controllers')
 .controller('LinksCtrl', ['$scope', 'Restangular', '$stateParams', '$localStorage', '$timeout', function ($scope, rest, $stateParams, storage, $timeout) {
     var key = $stateParams.streamKey,
         linkId = $stateParams.linkId,
         currentPage = $stateParams.page - 1;
 
+    $scope.link = $stateParams.link;
     $scope.links = [{}];
     $scope.slideIndex = 0;
 
@@ -19,12 +20,6 @@ angular.module('linkslap.controllers')
 
     $scope.slideChanged = function(index) {
     };
-
-    rest.one("api/link", linkId).get().then(function(link) {
-        $scope.link = link;
-
-        $scope.isImage = link.url.match(/\.(jpeg|jpg|gif|png)$/) != null;
-    });
 
     //$scope.load().then(function (response) {
     //    $scope.links = response;

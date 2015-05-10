@@ -1,4 +1,4 @@
-angular.module('linkslap.directives', [])
+﻿angular.module('linkslap.directives', [])
 .config(function ($provide) {
     $provide.decorator('$ionicHistory', function ($delegate) {
         var registerFunction = $delegate.register;
