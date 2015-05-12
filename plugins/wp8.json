@@ -1,0 +1,71 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"PushPlugin\"><param name=\"wp-package\" value=\"PushPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"UniqueDeviceID\"><param name=\"wp-package\" value=\"UniqueDeviceID\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"wp-package\" value=\"DebugConsole\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"wp-package\" value=\"Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SocialSharing\"><param name=\"wp-package\" value=\"SocialSharing\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "Properties/WMAppManifest.xml": {
+                "parents": {
+                    "/Deployment/App/Capabilities": [
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_PUSH_NOTIFICATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_IDENTITY_DEVICE\" />",
+                            "count": 2
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.ionic.keyboard": {
+            "PACKAGE_NAME": "{50be69d0-f72e-11e4-b111-ad956fb98683}"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "{50be69d0-f72e-11e4-b111-ad956fb98683}"
+        },
+        "hu.dpal.phonegap.plugins.UniqueDeviceID": {
+            "PACKAGE_NAME": "{50be69d0-f72e-11e4-b111-ad956fb98683}"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "{50be69d0-f72e-11e4-b111-ad956fb98683}"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "{50be69d0-f72e-11e4-b111-ad956fb98683}"
+        },
+        "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "{50be69d0-f72e-11e4-b111-ad956fb98683}"
+        }
+    },
+    "dependent_plugins": {}
+}
