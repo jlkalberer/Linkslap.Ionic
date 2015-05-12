@@ -1,4 +1,4 @@
-import extend from './extend';
+﻿import extend from './extend';
 import { hooks } from './hooks';
 
 function warn(msg) {

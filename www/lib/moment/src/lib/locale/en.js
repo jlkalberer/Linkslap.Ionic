@@ -1,4 +1,4 @@
-import './prototype';
+﻿import './prototype';
 import { getSetGlobalLocale } from './locales';
 import toInt from '../utils/to-int';
 

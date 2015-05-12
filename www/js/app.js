@@ -121,6 +121,7 @@ angular.module('linkslap', [
 
     .state('tab.search', {
         authenticate: true,
+        cache: false,
         url: '/search',
         views: {
             'tab-search': {
@@ -142,6 +143,7 @@ angular.module('linkslap', [
 
     .state('tab.streams', {
         authenticate: true,
+        cache: false,
         url: '/streams',
         views: {
             'tab-streams': {

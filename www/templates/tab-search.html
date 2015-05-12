@@ -6,6 +6,7 @@
         </label>
     </ion-nav-title>
     <ion-content class="search__gifs">
+        <button class="button button-balanced button-large new-link-count" ng-if="getNewLinkCount()" ng-bind="getNewLinkCount()"></button>
         <ion-list ng-if="$parent.results">
             <div class="search__gif" ng-repeat="gif in $parent.results">
                 <div class="search-wrapper">

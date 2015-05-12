@@ -1,4 +1,4 @@
-import { normalizeObjectUnits } from '../units/aliases';
+﻿import { normalizeObjectUnits } from '../units/aliases';
 import { getLocale } from '../locale/locales';
 
 export function Duration (duration) {

@@ -1,4 +1,4 @@
-/*global window:false*/
+﻿/*global window:false*/
 
 import moment from "./moment";
 

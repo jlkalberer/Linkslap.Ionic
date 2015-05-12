@@ -1,4 +1,4 @@
-import { createDuration } from '../duration/create';
+﻿import { createDuration } from '../duration/create';
 import { createLocal } from '../create/local';
 
 export function from (time, withoutSuffix) {

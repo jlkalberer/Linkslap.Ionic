@@ -1,4 +1,4 @@
-export function valueOf () {
+﻿export function valueOf () {
     return +this._d - ((this._offset || 0) * 60000);
 }
 

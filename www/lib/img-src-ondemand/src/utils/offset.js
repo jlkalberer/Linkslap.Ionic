@@ -1,4 +1,4 @@
-angular.module('img-src-ondemand')
+﻿angular.module('img-src-ondemand')
 .factory('offsetFn', function($window) {
   return function(rawElem) {
     var top = 0, left = 0;

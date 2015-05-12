@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! Locale: Arabic (ar)
 //! Author: Abdel Said: https://github.com/abdelsaid
 //! Changes in months, weekdays: Ahmed Elkhatib

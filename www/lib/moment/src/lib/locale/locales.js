@@ -1,4 +1,4 @@
-import isArray from '../utils/is-array';
+﻿import isArray from '../utils/is-array';
 import compareArrays from '../utils/compare-arrays';
 import { Locale } from './constructor';
 

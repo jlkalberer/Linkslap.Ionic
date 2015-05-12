@@ -1,4 +1,4 @@
-import { normalizeUnits } from '../units/aliases';
+﻿import { normalizeUnits } from '../units/aliases';
 import { hooks } from '../utils/hooks';
 
 export function makeGetSet (unit, keepTime) {

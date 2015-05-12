@@ -1,4 +1,4 @@
-import { getLocale } from './locales';
+﻿import { getLocale } from './locales';
 import { createUTC } from '../create/utc';
 
 function get (format, index, field, setter) {

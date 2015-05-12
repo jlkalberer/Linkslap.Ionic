@@ -1,4 +1,4 @@
-var mathAbs = Math.abs;
+﻿var mathAbs = Math.abs;
 
 export function abs () {
     var data           = this._data;

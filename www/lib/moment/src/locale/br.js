@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : breton (br)
 //! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 

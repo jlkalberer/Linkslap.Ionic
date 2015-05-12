@@ -1,4 +1,4 @@
-import { normalizeObjectUnits } from '../units/aliases';
+﻿import { normalizeObjectUnits } from '../units/aliases';
 import { configFromArray } from './from-array';
 
 export function configFromObject(config) {

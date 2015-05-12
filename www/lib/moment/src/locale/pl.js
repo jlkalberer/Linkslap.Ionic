@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : polish (pl)
 //! author : Rafal Hirsz : https://github.com/evoL
 

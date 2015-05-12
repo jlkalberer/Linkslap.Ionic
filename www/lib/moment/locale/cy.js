@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : Welsh (cy)
 //! author : Robert Allen
 

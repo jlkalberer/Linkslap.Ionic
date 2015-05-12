@@ -1,4 +1,4 @@
-import { configFromISO } from './from-string';
+﻿import { configFromISO } from './from-string';
 import { configFromArray } from './from-array';
 import { getParseRegexForToken }   from '../parse/regex';
 import { addTimeToArrayFromToken } from '../parse/token';

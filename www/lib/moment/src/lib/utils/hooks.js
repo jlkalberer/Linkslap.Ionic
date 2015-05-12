@@ -1,4 +1,4 @@
-export { hooks, setHookCallback };
+﻿export { hooks, setHookCallback };
 
 var hookCallback;
 

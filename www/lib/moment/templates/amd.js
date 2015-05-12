@@ -1,4 +1,4 @@
-/*global define:false*/
+﻿/*global define:false*/
 
 import moment from "./moment";
 

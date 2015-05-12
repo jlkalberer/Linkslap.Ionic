@@ -1,4 +1,4 @@
-import { matchOffset } from '../parse/regex';
+﻿import { matchOffset } from '../parse/regex';
 import { configFromStringAndFormat } from './from-string-and-format';
 import { hooks } from '../utils/hooks';
 import { deprecate } from '../utils/deprecate';

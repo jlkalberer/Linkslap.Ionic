@@ -3,7 +3,8 @@
     $scope.key = $stateParams.streamKey;
     $scope.currentPage = 0;
 
-    $scope.stream = _.find(storage.subscriptions, function (s) { return s.stream.key === $scope.key; }).stream;
+    var subscription = _.find(storage.subscriptions, function (s) { return s.stream.key === $scope.key; });
+    $scope.stream = subscription.stream;
     $scope.links = [];
     $scope.canLoadMore = true;
 
@@ -12,6 +13,12 @@
             /*for (var i = 0; i < values.length; i += 1) {
             values[i].createdDate = moment(values[i].createdDate, settings.dateFormat).format("M/D/YYYY h:mm a")
         }*/
+
+            _.each(response, function(link) {
+                if (_.find(subscription.newLinks, function(id) { return id === link.id })) {
+                    link.isNew = true;
+                }
+            });
 
             $scope.links = $scope.links.concat(response);
             $scope.canLoadMore = response.length > 0;

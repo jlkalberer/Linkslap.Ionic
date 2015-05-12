@@ -1,4 +1,4 @@
-import { Duration, isDuration } from './constructor';
+﻿import { Duration, isDuration } from './constructor';
 import toInt from '../utils/to-int';
 import hasOwnProp from '../utils/has-own-prop';
 import { DATE, HOUR, MINUTE, SECOND, MILLISECOND } from '../units/constants';

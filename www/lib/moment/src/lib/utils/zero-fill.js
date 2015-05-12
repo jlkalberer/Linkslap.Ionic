@@ -1,4 +1,4 @@
-export default function zeroFill(number, targetLength, forceSign) {
+﻿export default function zeroFill(number, targetLength, forceSign) {
     var output = '' + Math.abs(number),
         sign = number >= 0;
 

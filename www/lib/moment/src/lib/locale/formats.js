@@ -1,4 +1,4 @@
-export var defaultLongDateFormat = {
+﻿export var defaultLongDateFormat = {
     LTS  : 'h:mm:ss A',
     LT   : 'h:mm A',
     L    : 'MM/DD/YYYY',

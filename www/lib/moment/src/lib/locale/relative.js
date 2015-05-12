@@ -1,4 +1,4 @@
-export var defaultRelativeTime = {
+﻿export var defaultRelativeTime = {
     future : 'in %s',
     past   : '%s ago',
     s  : 'a few seconds',

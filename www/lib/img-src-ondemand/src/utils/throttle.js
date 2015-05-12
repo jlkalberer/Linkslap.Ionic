@@ -1,4 +1,4 @@
-angular.module('img-src-ondemand')
+﻿angular.module('img-src-ondemand')
 .factory('throttleFn', function($timeout) {
   return function(fn, delay) {
     var job, last = 0;

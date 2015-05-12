@@ -1,4 +1,4 @@
-import { createLocal } from '../create/local';
+﻿import { createLocal } from '../create/local';
 import { createUTC } from '../create/utc';
 import { createInvalid } from '../create/valid';
 import { isMoment } from './constructor';

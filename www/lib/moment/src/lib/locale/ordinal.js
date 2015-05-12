@@ -1,4 +1,4 @@
-export var defaultOrdinal = '%d';
+﻿export var defaultOrdinal = '%d';
 export var defaultOrdinalParse = /\d{1,2}/;
 
 export function ordinal (number) {

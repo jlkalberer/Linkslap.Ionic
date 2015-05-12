@@ -1,4 +1,4 @@
-import { makeGetSet } from '../moment/get-set';
+﻿import { makeGetSet } from '../moment/get-set';
 import { addFormatToken } from '../format/format';
 import { addUnitAlias } from './aliases';
 import { addRegexToken, match1, match2, match3, match1to3, matchUnsigned } from '../parse/regex';

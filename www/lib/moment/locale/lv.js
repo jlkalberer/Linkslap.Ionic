@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : latvian (lv)
 //! author : Kristaps Karlsons : https://github.com/skakri
 

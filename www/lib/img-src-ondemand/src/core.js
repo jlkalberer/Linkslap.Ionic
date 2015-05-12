@@ -1,4 +1,4 @@
-angular.module('img-src-ondemand', [])
+﻿angular.module('img-src-ondemand', [])
 .provider('ImgSrcOndemand', function() {
   var offset = 0;
 

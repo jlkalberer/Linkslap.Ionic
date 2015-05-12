@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : macedonian (mk)
 //! author : Borislav Mickov : https://github.com/B0k0
 

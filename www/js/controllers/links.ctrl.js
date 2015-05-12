@@ -8,6 +8,9 @@
     $scope.links = [{}];
     $scope.slideIndex = 0;
 
+    var subscription = _.find(storage.subscriptions, function (s) { return s.stream.key === key; });
+    subscription.newLinks = _.without(subscription.newLinks, parseInt(linkId));
+
     $scope.load = function () {
         return rest.one("api/stream", key).getList('links', { page: currentPage, limit: 20 }).then(function (response) {
             $timeout(function () {

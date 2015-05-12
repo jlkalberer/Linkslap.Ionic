@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : Burmese (my)
 //! author : Squar team, mysquar.com
 

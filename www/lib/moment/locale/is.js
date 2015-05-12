@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : icelandic (is)
 //! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 

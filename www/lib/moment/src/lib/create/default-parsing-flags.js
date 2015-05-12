@@ -1,4 +1,4 @@
-export default function defaultParsingFlags() {
+﻿export default function defaultParsingFlags() {
     // We need to deep clone this object.
     return {
         empty           : false,

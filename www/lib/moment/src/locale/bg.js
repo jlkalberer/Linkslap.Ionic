@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : bulgarian (bg)
 //! author : Krasen Borisov : https://github.com/kraz
 

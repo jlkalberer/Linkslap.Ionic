@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : czech (cs)
 //! author : petrbela : https://github.com/petrbela
 

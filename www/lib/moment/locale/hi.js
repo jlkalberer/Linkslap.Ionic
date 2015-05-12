@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : hindi (hi)
 //! author : Mayank Singhal : https://github.com/mayanksinghal
 

@@ -1,4 +1,4 @@
-import absFloor from '../utils/abs-floor';
+﻿import absFloor from '../utils/abs-floor';
 import { cloneWithOffset } from '../units/offset';
 import { normalizeUnits } from '../units/aliases';
 

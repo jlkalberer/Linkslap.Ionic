@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : Bahasa Malaysia (ms-MY)
 //! author : Weldan Jamili : https://github.com/weldan
 

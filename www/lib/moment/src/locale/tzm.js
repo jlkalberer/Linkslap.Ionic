@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : Morocco Central Atlas Tamaziɣt (tzm)
 //! author : Abdel Said : https://github.com/abdelsaid
 

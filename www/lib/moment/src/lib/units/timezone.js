@@ -1,4 +1,4 @@
-import { addFormatToken } from '../format/format';
+﻿import { addFormatToken } from '../format/format';
 
 // FORMATTING
 

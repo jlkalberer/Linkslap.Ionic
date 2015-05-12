@@ -1,4 +1,4 @@
-var Benchmark = require('benchmark'),
+﻿var Benchmark = require('benchmark'),
     moment = require("./../moment.js"),
     base = moment('2013-05-25');
 

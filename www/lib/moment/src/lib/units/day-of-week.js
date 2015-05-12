@@ -1,4 +1,4 @@
-import { addFormatToken } from '../format/format';
+﻿import { addFormatToken } from '../format/format';
 import { addUnitAlias } from './aliases';
 import { addRegexToken, match1to2, matchWord } from '../parse/regex';
 import { addWeekParseToken } from '../parse/token';

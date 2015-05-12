@@ -1,4 +1,4 @@
-var abs = Math.abs;
+﻿var abs = Math.abs;
 
 export function toISOString() {
     // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js

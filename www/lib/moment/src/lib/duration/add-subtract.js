@@ -1,4 +1,4 @@
-import { createDuration } from './create';
+﻿import { createDuration } from './create';
 
 function addSubtract (duration, input, value, direction) {
     var other = createDuration(input, value);

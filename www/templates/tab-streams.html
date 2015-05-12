@@ -2,8 +2,8 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="subscription in $parent.subscriptions" type="item-text-wrap" href="#/tab/streams/stream/{{subscription.stream.key}}">
-          <h2>{{subscription.stream.name}}</h2>
-          <span ng-if="subscription.missedSlaps" class="badge badge-positive">0</span>
+          <span ng-bind="subscription.stream.name" ng-class="{'bold' : subscription.newLinks.length}"></span>
+          <span ng-if="subscription.newLinks.length" class="badge badge-positive" ng-bind="subscription.newLinks.length"></span>
       </ion-item>
     </ion-list>
   </ion-content>

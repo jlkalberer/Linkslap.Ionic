@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : japanese (ja)
 //! author : LI Long : https://github.com/baryon
 

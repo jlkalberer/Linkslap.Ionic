@@ -1,4 +1,4 @@
-import { Moment } from './constructor';
+﻿import { Moment } from './constructor';
 
 var proto = Moment.prototype;
 

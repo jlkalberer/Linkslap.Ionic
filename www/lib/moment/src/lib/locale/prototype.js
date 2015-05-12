@@ -1,4 +1,4 @@
-import { Locale } from './constructor';
+﻿import { Locale } from './constructor';
 
 var proto = Locale.prototype;
 

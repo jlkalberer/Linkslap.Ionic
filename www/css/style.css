@@ -42,6 +42,17 @@
 .search__gifs {
     padding: 10px 30px;
 }
+.new-link-count {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+.bold {
+    font-weight: bold;
+}
+.bold h2 {
+    font-weight: bold;
+}
 .btn__share {
     position: absolute;
     bottom: 10px;

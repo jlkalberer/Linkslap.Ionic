@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : traditional chinese (zh-tw)
 //! author : Ben : https://github.com/ben-lin
 

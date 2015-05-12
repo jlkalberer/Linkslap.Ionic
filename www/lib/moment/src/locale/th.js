@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale : thai (th)
 //! author : Kridsada Thanabulpong : https://github.com/sirn
 

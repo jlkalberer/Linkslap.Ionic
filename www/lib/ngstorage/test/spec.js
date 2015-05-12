@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 describe('ngStorage', function () {
     var expect = chai.expect;

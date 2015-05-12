@@ -1,4 +1,4 @@
-import { Duration } from './constructor';
+﻿import { Duration } from './constructor';
 
 var proto = Duration.prototype;
 

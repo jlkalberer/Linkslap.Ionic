@@ -1,4 +1,4 @@
-import defaultParsingFlags from './default-parsing-flags';
+﻿import defaultParsingFlags from './default-parsing-flags';
 import isArray from '../utils/is-array';
 import isDate from '../utils/is-date';
 import map from '../utils/map';

@@ -1,4 +1,4 @@
-import { addFormatToken } from '../format/format';
+﻿import { addFormatToken } from '../format/format';
 import { addUnitAlias } from './aliases';
 import { addRegexToken, match1 } from '../parse/regex';
 import { addParseToken } from '../parse/token';

@@ -1,4 +1,4 @@
-import { isMoment } from './constructor';
+﻿import { isMoment } from './constructor';
 import { normalizeUnits } from '../units/aliases';
 import { createLocal } from '../create/local';
 

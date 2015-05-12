@@ -1,4 +1,4 @@
-import { copyConfig } from '../moment/constructor';
+﻿import { copyConfig } from '../moment/constructor';
 import { configFromStringAndFormat } from './from-string-and-format';
 import defaultParsingFlags from './default-parsing-flags';
 import { isValid } from './valid';

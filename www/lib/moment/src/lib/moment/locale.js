@@ -1,4 +1,4 @@
-import { getLocale } from '../locale/locales';
+﻿import { getLocale } from '../locale/locales';
 import { deprecate } from '../utils/deprecate';
 
 // If passed a locale key, it will set the locale for this

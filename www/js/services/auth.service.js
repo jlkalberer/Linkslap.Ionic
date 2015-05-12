@@ -29,6 +29,14 @@ angular.module('linkslap.services', [])
                     storage.authDetails = response;
                     push.register();
 
+                    rest.all('api/subscription').getList()
+                        .then(function (subscriptions) {
+                            _.each(subscriptions, function(sub) {
+                                sub.newLinks = [];
+                            });
+                            storage.subscriptions = subscriptions;
+                        });
+
                     return response;
                 });
           },

@@ -1,4 +1,4 @@
-import { deprecate } from '../utils/deprecate';
+﻿import { deprecate } from '../utils/deprecate';
 import isArray from '../utils/is-array';
 import { createLocal } from '../create/local';
 

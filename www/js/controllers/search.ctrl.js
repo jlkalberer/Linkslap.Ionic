@@ -1,7 +1,7 @@
 ﻿angular.module('linkslap.controllers')
 .controller('SearchCtrl', [
-'$scope', 'Restangular', '$timeout', '$ionicScrollDelegate', '$state',
-function ($scope, rest, $timeout, $ionicScrollDelegate, $state) {
+'$scope', 'Restangular', '$timeout', '$ionicScrollDelegate', '$state', '$localStorage',
+function ($scope, rest, $timeout, $ionicScrollDelegate, $state, storage) {
     $scope.search = '';
     $scope.pageCount = [];
     $scope.currentPage = 1;
@@ -57,4 +57,8 @@ function ($scope, rest, $timeout, $ionicScrollDelegate, $state) {
     };
 
     $scope.$watch('search', function () { $scope.currentPage = 1; $scope.searchGif(); });
+
+    $scope.getNewLinkCount = function() {
+        return _.reduce(storage.subscriptions, function(current, sub) { return current + sub.newLinks.length; }, 0);
+    };
 }]);

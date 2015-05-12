@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+﻿//! moment.js locale configuration
 //! locale  : Tunisian Arabic (ar-tn)
 
 (function (global, factory) {

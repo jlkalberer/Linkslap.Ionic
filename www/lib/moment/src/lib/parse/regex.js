@@ -1,4 +1,4 @@
-export var match1         = /\d/;            //       0 - 9
+﻿export var match1         = /\d/;            //       0 - 9
 export var match2         = /\d\d/;          //      00 - 99
 export var match3         = /\d{3}/;         //     000 - 999
 export var match4         = /\d{4}/;         //    0000 - 9999
