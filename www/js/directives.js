@@ -26,7 +26,6 @@
 
             return function (scope) {
                 scope.customStateBack = function () {
-                    console.log($state)
                     if ($ionicHistory.backView()) {
                         $ionicHistory.goBack();
                     } else if (!!$state.$current.parent.navigable) {

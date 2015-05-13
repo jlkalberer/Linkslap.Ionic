@@ -1,5 +1,5 @@
 ﻿<div class="media__container">
-    <div ng-if='isVideo || isImgurGif'>
+    <div class="media__video" ng-if='isVideo || isImgurGif'>
         <video autoplay='autoplay' preload='auto' loop='loop' ng-if='!loadError'>
             <source ng-if="mp4" ng-src='{{mp4}}' type='video/mp4' />
             <source ng-if="webm" ng-src='{{webm}}' type='video/webm' />
@@ -10,7 +10,7 @@
         </div>
         <div ng-transclude></div>
     </div>
-    <div ng-if="isImage && !isImgurGif" class="search__gif">
+    <div ng-if="isImage && !isImgurGif" class="media__gif">
         <div class='media-image' ng-style='image'></div>
         <div ng-transclude></div>
     </div>

@@ -6,11 +6,9 @@
 '$localStorage',
 '$ionicHistory',
 '$state',
-function ($scope, rest, $stateParams, storage, $ionicHistory, $state) {
-    $stateParams.url = "https://google.com";
+'$timeout',
+function ($scope, rest, $stateParams, storage, $ionicHistory, $state, $timeout) {
     $scope.url = $stateParams.url;
-
-
     $scope.streams = _.pluck(storage.subscriptions, 'stream');
 
     $scope.share = function () {
@@ -29,8 +27,15 @@ function ($scope, rest, $stateParams, storage, $ionicHistory, $state) {
                 $ionicHistory.nextViewOptions({
                     historyRoot: true
                 });
+                $ionicHistory.goBack();
 
-                $state.go('tab.streams.stream.links', { streamKey: response.streamKey, linkId: response.id, link: response });
+                $timeout(function () {
+                    $ionicHistory.nextViewOptions({
+                        historyRoot: true
+                    });
+
+                    $state.go('tab.streams.stream.links', { streamKey: response.streamKey, linkId: response.id, link: response });
+                });
             });
     };
 

@@ -29,8 +29,10 @@
         });
     }
 
-    WinJS.Application.addEventListener("activated", activatedHandler, false);
-    WinJS.Application.addEventListener("shareready", shareReady, false);
+    if (typeof WinJS !== 'undefined') {
+        WinJS.Application.addEventListener("activated", activatedHandler, false);
+        WinJS.Application.addEventListener("shareready", shareReady, false);
+    }
 
     return {
         callback: function() {}

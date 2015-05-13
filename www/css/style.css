@@ -62,21 +62,21 @@
     z-index: 3;
 }
 
-.search__gif {
+.media__gif {
     padding-bottom: 10px;
 }
-	.search__gif .gif__result {
+	.media__gif .gif__result {
         margin:0;
 		padding:0;
         overflow: hidden;
 	}
 
-    .search__gif img {
+    .media__gif img {
         width: 100%;
         height: auto;
         min-height: 250px;
     }
-    .search__gif .media-image {
+    .media__gif .media-image {
         position:absolute;
         top:0;
         background-position:50% 50%;
@@ -84,17 +84,17 @@
         width:100%;
         height:100%;
     }
-    .search__gif a {
+    .media__gif a {
         display:block;
         width:100%;
         height:100%;
         overflow:hidden;
     }
-    .search__gif .video__overlay {
+    .media__gif .video__overlay {
         position: absolute;
         z-index: 2;
     }
-    .search__gif .search-wrapper {
+    .media__gif .search-wrapper {
         width: 100%;
         display: inline-block;
         position: relative;
@@ -103,21 +103,21 @@
         background: #000;
         overflow: hidden;
     }
-    .search__gif .search-wrapper:after {
+    .media__gif .search-wrapper:after {
         padding-top: 100%;
         display: block;
         content: '';
     }
-    .search__gif .search-content {
+    .media__gif .search-content {
         position: absolute;
         top: 0; bottom: 0; right: 0; left: 0;
     }
-        .search__gif .search-content div {
+        .media__gif .search-content div {
             width: 100%;
             height: 100%;
         }
 
-    .search__gif video {
+    .media__gif video {
         position:absolute;
         top:0;
         left:0;
@@ -126,7 +126,16 @@
         -ms-border-radius: 20px;
         border-radius: 20px;
     }
+
+.share-content {
 }
+    .share-content .webPageFrame {
+        min-height: 300px;
+    }
+    .share-content .media__gif,
+    .share-content .media__video {
+        padding: 10px 60px;
+    }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak,
 .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
