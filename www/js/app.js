@@ -13,7 +13,7 @@ angular.module('linkslap', [
     'img-src-ondemand'
 ])
 
-.run(function ($ionicPlatform, $rootScope, auth, $ionicHistory, $state, $localStorage, $ionicActionSheet) {
+.run(function ($ionicPlatform, $rootScope, auth, $ionicHistory, $state, actionSheet) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -38,14 +38,17 @@ angular.module('linkslap', [
                 return true; // This line is important, without it the app closes.
             }
         }
-
-        $localStorage.$default({
-            'settings': {
-                pushNotifications: true,
-                manageLocations: false
-            }
-        });
     });
+
+    share.callback = function(url) {
+        if (!auth.isLoggedIn()) {
+            return;
+        }
+
+        $state.go('tab.search.share', { url: url });
+    };
+
+    $rootScope.showActionSheet = actionSheet.showActionSheet;
 
     $rootScope.$on('$stateChangeStart',
     function (event, toState, toParams, fromState, fromParams) {
@@ -59,25 +62,6 @@ angular.module('linkslap', [
             });
         }
     });
-
-    $rootScope.showActionSheet = function () {
-        console.log("showAS");
-        var hideSheet = $ionicActionSheet.show({
-            buttons: [
-              { text: 'New Stream' },
-              { text: 'Settings' },
-              { text: 'Log Out' }
-            ],
-            buttonClicked: function (index) {
-
-                if (index === 2) {
-                    auth.logout();
-                }
-
-                return true;
-            }
-        });
-    };
 })
 .config(function($sceProvider) {
     $sceProvider.enabled(false);
@@ -121,7 +105,7 @@ angular.module('linkslap', [
 
     .state('tab.search', {
         authenticate: true,
-        cache: false,
+        //cache: false,
         url: '/search',
         views: {
             'tab-search': {

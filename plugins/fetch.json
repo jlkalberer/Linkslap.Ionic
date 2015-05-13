@@ -32,19 +32,18 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.phonegap.plugins.PushPlugin": {
+    "nl.x-services.plugins.socialsharing": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/jlkalberer/PushPlugin.git",
-            "subdir": "."
+            "type": "registry",
+            "id": "nl.x-services.plugins.socialsharing"
         },
         "is_top_level": true,
         "variables": {}
     },
-    "nl.x-services.plugins.socialsharing": {
+    "com.phonegap.plugins.PushPlugin": {
         "source": {
             "type": "git",
-            "url": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
+            "url": "https://github.com/jlkalberer/PushPlugin",
             "subdir": "."
         },
         "is_top_level": true,

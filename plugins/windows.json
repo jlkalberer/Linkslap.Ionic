@@ -41,19 +41,19 @@
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "Linkslap"
         },
+        "hu.dpal.phonegap.plugins.UniqueDeviceID": {
+            "PACKAGE_NAME": "Linkslap"
+        },
         "org.apache.cordova.console": {
             "PACKAGE_NAME": "Linkslap"
         },
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "Linkslap"
         },
-        "hu.dpal.phonegap.plugins.UniqueDeviceID": {
+        "nl.x-services.plugins.socialsharing": {
             "PACKAGE_NAME": "Linkslap"
         },
         "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "Linkslap"
-        },
-        "nl.x-services.plugins.socialsharing": {
             "PACKAGE_NAME": "Linkslap"
         }
     },

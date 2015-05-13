@@ -8,6 +8,10 @@
     $scope.register = function () {
         $scope.registering = true;
 
+        if ($scope.registering) {
+            return;
+        }
+
         auth.register($scope.registerData)
           .then(function (response) {
               auth.login($scope.registerData).then(function () {

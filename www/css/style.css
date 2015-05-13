@@ -63,12 +63,12 @@
 }
 
 .search__gif {
-    overflow-y: scroll;
     padding-bottom: 10px;
 }
 	.search__gif .gif__result {
         margin:0;
 		padding:0;
+        overflow: hidden;
 	}
 
     .search__gif img {

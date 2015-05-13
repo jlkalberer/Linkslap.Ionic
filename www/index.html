@@ -6,7 +6,7 @@
     <title></title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    
+
     <script src="js/winstore-jscompat.js"></script>
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -14,9 +14,10 @@
     -->
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-    
+
     <!-- libs -->
     <script src="lib/lodash/lodash.min.js"></script>
     <script src="lib/restangular/dist/restangular.min.js"></script>
@@ -29,7 +30,8 @@
     <script src="js/directives.js"></script>
     <script src="js/services.js"></script>
     <script src="js/push-callbacks.js"></script>
-    
+    <script src="js/share.js"></script>
+
     <!-- Controllers -->
     <script src="js/controllers/login.ctrl.js"></script>
     <script src="js/controllers/register.ctrl.js"></script>
@@ -42,7 +44,8 @@
     <!-- Services -->
     <script src="js/services/auth.service.js"></script>
     <script src="js/services/push.service.js"></script>
-    
+    <script src="js/services/action-sheet.service.js"></script>
+
     <!-- Directives -->
     <script src="js/directives/gif.directive.js"></script>
     <script src="js/directives/media.directive.js"></script>
@@ -53,7 +56,7 @@
       The nav bar that will be updated as we navigate between views.
     -->
     <ion-nav-bar class="bar-stable">
-        <ion-nav-back-button>
+        <ion-nav-back-button state-nav-back-button>
         </ion-nav-back-button>
     </ion-nav-bar>
     <!--
