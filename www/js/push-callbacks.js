@@ -1,5 +1,6 @@
 ﻿angular.module('linkslap')
-.run(['$window', '$rootScope', '$localStorage', function ($window, $rootScope, storage) {
+.run(['$window', '$rootScope', '$localStorage', '$ionicHistory', '$state',
+function ($window, $rootScope, storage, $ionicHistory, $state) {
     function addToStream(link) {
         var sub = _.find(storage.subscriptions, function (subscription) {
             return subscription.stream.key === link.streamKey;
@@ -9,6 +10,25 @@
         sub.newLinks.push(link.id);
     }
 
+    if (true) {
+        WinJS.Application.addEventListener("activated", function(eventObject) {
+            if (eventObject.detail.kind !== Windows.ApplicationModel.Activation.ActivationKind.launch) {
+                return;
+            }
+
+            if (!eventObject.detail.arguments) {
+                return;
+            }
+
+            var link = JSON.parse(eventObject.detail.arguments);
+
+            $ionicHistory.nextViewOptions({
+                historyRoot: true
+            });
+
+            $state.go('tab.streams.stream.links', { streamKey: link.streamKey, linkId: link.id, link: link });
+        }, false);
+    }
     $window.windowsEcb = function (json) {
         $rootScope.$apply(function() {
             addToStream(json);
@@ -20,12 +40,15 @@
         var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
 
         var toastTextElements = toastXml.getElementsByTagName("text");
-        toastTextElements[0].appendChild(toastXml.createTextNode("Hello World!"));
+        //toastTextElements[0].appendChild(toastXml.createTextNode("Linkslap"));
+        toastTextElements[0].appendChild(toastXml.createTextNode("New link in " + json.streamName));
 
         json.type = 'toast';
         toastXml.selectSingleNode("/toast").setAttribute("launch", JSON.stringify(json));
 
         var toast = new notifications.ToastNotification(toastXml);
+        toast.tag = json.id;
+        toast.Tag = json.id;
 
         var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
         toastNotifier.show(toast);

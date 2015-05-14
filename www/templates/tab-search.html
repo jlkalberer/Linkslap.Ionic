@@ -8,7 +8,7 @@
     <ion-content class="search__gifs">
         <button class="button button-balanced button-large new-link-count" ng-if="getNewLinkCount()" ng-bind="getNewLinkCount()"></button>
         <ion-list ng-if="$parent.results">
-            <div class="media__gif" ng-repeat="gif in $parent.results">
+            <div class="media__gif" collection-repeat="gif in $parent.results">
                 <div class="search-wrapper">
                     <div class="search-content">
                         <gif thumb="{{gif.thumbnailUrl}}" source="{{gif.url}}">

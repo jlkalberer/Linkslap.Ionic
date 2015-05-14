@@ -1,7 +1,7 @@
 ﻿angular.module('linkslap.services')
 .factory('push', [
-'$window', '$ionicPlatform', '$q', 'Restangular',
-function ($window, $ionicPlatform, $q, rest) {
+'$window', '$ionicPlatform', '$q', 'Restangular', '$localStorage',
+function ($window, $ionicPlatform, $q, rest, $localStorage) {
     var platform = '',
         deviceToken = '',
         uidDefer = $q.defer(),
@@ -44,15 +44,22 @@ function ($window, $ionicPlatform, $q, rest) {
             // Push notifications in a background service causes WP8.1 to crash so
             // push notifications are only used in Windows 10 and greater
             if (WinJS.Utilities.isPhone) {
-                pushNotification.register(
-                    successHandler,
-                    errorHandler,
-                    {
-                        "ecb": "windowsEcb"
-                    });
+                //pushNotification.register(successHandler, errorHandler,
+                //    {
+                //        "ecb": 'windowsEcb'
+                //    });
+                //pushNotification.registerBackground(successHandler, errorHandler,
+                //    {
+                //        "entryPoint": "PushPlugin.PushBackgroundTask",
+                //    });
+
+                PushPlugin.PushSetup.run().then(function(channel) {
+                    channelDefer.resolve(channel);
+                });
             } else {
                 pushNotification.registerBackground(successHandler, errorHandler,
                     {
+                        "entryPoint": "PushPlugin.PushBackgroundTask",
                         "importScript": "/www/js/push-callbacks.js",
                         "callback": 'windowsEcb'
                     });

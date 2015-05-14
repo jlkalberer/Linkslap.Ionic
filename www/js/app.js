@@ -138,6 +138,7 @@ angular.module('linkslap', [
     })
     .state('tab.streams.stream', {
         authenticate: true,
+        cache: false,
         url: '/stream/:streamKey',
         views: {
             'tab-streams@tab': {
