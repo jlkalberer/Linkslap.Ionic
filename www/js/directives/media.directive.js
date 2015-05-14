@@ -1,7 +1,7 @@
 ﻿(angular.module('linkslap.directives'))
 .directive("media", [
-    '$sce', '$rootScope',
-    function ($sce, $rootScope) {
+    '$sce', '$ionicPlatform',
+    function ($sce, $ionicPlatform) {
         function isImage(url) {
             return url && url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null;
         }
@@ -25,10 +25,13 @@
             replace: true,
             templateUrl: "templates/media.html",
             link: function (scope) {
-                scope.isWindows = window.device && device.platform == 'windows';
+                $ionicPlatform.ready(function () {
+                    scope.isWindows = window.device && device.platform == 'windows';
+                });
+
                 scope.playing = !(!scope.autoplay);
 
-                scope.$watch('source', function() {
+                scope.$watch('source', function () {
                     if (!scope.source) {
                         return;
                     }
