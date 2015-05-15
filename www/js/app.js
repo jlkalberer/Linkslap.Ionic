@@ -40,12 +40,14 @@ angular.module('linkslap', [
         }
     });
 
-    share.callback = function(url) {
-        if (!auth.isLoggedIn()) {
-            return;
-        }
+    share.callback = function (url) {
+        $ionicPlatform(function() {
+            if (!auth.isLoggedIn()) {
+                return;
+            }
 
-        $state.go('tab.search.share', { url: url });
+            $state.go('tab.search.share', { url: url });
+        });
     };
 
     $rootScope.showActionSheet = actionSheet.showActionSheet;

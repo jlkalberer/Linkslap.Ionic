@@ -1,6 +1,6 @@
 ﻿angular.module('linkslap')
-.run(['$window', '$rootScope', '$localStorage', '$ionicHistory', '$state',
-function ($window, $rootScope, storage, $ionicHistory, $state) {
+.run(['$window', '$rootScope', '$ionicPlatform', '$localStorage', '$ionicHistory', '$state',
+function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
     function addToStream(link) {
         var sub = _.find(storage.subscriptions, function (subscription) {
             return subscription.stream.key === link.streamKey;
@@ -10,25 +10,31 @@ function ($window, $rootScope, storage, $ionicHistory, $state) {
         sub.newLinks.push(link.id);
     }
 
-    if (true) {
-        WinJS.Application.addEventListener("activated", function(eventObject) {
-            if (eventObject.detail.kind !== Windows.ApplicationModel.Activation.ActivationKind.launch) {
-                return;
-            }
+    $ionicPlatform.ready(function() {
+        if (!$window.device) {
+            return;
+        }
 
-            if (!eventObject.detail.arguments) {
-                return;
-            }
+        if (device.platform == 'windows') {
+            WinJS.Application.addEventListener("activated", function(eventObject) {
+                if (eventObject.detail.kind !== Windows.ApplicationModel.Activation.ActivationKind.launch) {
+                    return;
+                }
 
-            var link = JSON.parse(eventObject.detail.arguments);
+                if (!eventObject.detail.arguments) {
+                    return;
+                }
 
-            $ionicHistory.nextViewOptions({
-                historyRoot: true
-            });
+                var link = JSON.parse(eventObject.detail.arguments);
 
-            $state.go('tab.streams.stream.links', { streamKey: link.streamKey, linkId: link.id, link: link });
-        }, false);
-    }
+                $ionicHistory.nextViewOptions({
+                    historyRoot: true
+                });
+
+                $state.go('tab.streams.stream.links', { streamKey: link.streamKey, linkId: link.id, link: link });
+            }, false);
+        }
+    });
     $window.windowsEcb = function (json) {
         $rootScope.$apply(function() {
             addToStream(json);

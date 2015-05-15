@@ -1,7 +1,7 @@
 ﻿(angular.module('linkslap.directives'))
 .directive("media", [
-    '$sce', '$ionicPlatform',
-    function ($sce, $ionicPlatform) {
+    '$sce', '$ionicPlatform', 'Restangular',
+    function ($sce, $ionicPlatform, rest) {
         function isImage(url) {
             return url && url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null;
         }
