@@ -9,6 +9,7 @@ function ($scope, rest, $timeout, $ionicScrollDelegate, $state, storage) {
     $scope.results = [];
     $scope.searching = false;
     $scope.totalCount = 0;
+    $scope.noSearch = true;
 
     $scope.searchGif = function () {
         if ($scope.currentPage === 1) {
@@ -19,6 +20,8 @@ function ($scope, rest, $timeout, $ionicScrollDelegate, $state, storage) {
             $scope.pageCount = [];
             return;
         }
+
+        $scope.noSearch = false;
 
         if ($scope.searching) {
             return;
@@ -38,10 +41,14 @@ function ($scope, rest, $timeout, $ionicScrollDelegate, $state, storage) {
                     $scope.results = $scope.results.concat(result.results);
                 }
 
+                $scope.noResults = result.total === 0;
+
                 $timeout(function () {
                     $scope.$broadcast('scroll.infiniteScrollComplete');
                     $scope.searching = false;
                 }, 500);
+            }, function() {
+                $scope.noResults = true;
             });
 
 

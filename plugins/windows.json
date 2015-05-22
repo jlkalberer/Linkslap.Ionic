@@ -55,6 +55,9 @@
         },
         "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "Linkslap"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "Linkslap"
         }
     },
     "dependent_plugins": {}

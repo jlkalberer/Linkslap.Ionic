@@ -3,11 +3,21 @@
     '$sce', '$ionicPlatform', 'Restangular',
     function ($sce, $ionicPlatform, rest) {
         function isImage(url) {
-            return url && url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null;
+            if (!url) {
+                return false;
+            }
+            url = url.split('?')[0];
+
+            return url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null;
         }
 
         function isVideo(url) {
-            return url && url.toLowerCase().match(/\.(mp4|ogg|webm)$/) != null;
+            if (!url) {
+                return false;
+            }
+            url = url.split('?')[0];
+
+            return url.toLowerCase().match(/\.(mp4|ogg|webm)$/) != null;
         }
 
         function isImgurGif(url) {
@@ -63,7 +73,18 @@
                     if (scope.isVideo || scope.isImage) {
                         scope.image = { 'background-image': 'url(' + scope.src + ')' };
                     }
+
+                    // Use InAppBrowser if https
+                    scope.isInAppBrowser = !scope.isImage && scope.src.indexOf('https://');
+
+                    if (scope.isInAppBrowser) {
+                        scope.showInAppBrowser();
+                    }
                 });
+
+                scope.showInAppBrowser = function() {
+                    window.open(scope.src, '_blank', 'location=yes');
+                };
             }
         }
     }

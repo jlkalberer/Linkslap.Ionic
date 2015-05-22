@@ -2,15 +2,15 @@
     <ion-nav-title>
         <label class="item item-input">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="search" placeholder="Search" placeholder="Search gif" data-ng-model="$parent.search" ng-model-options="{debounce: 500}">
+            <input type="search" placeholder="Search" placeholder="Search gif" data-ng-model="$parent.search" ng-model-options="{debounce: 1000}">
         </label>
     </ion-nav-title>
     <ion-content class="search__gifs">
         <button class="button button-balanced button-large new-link-count" ng-if="getNewLinkCount()" ng-bind="getNewLinkCount()"></button>
         <ion-list ng-if="$parent.results">
             <div class="media__gif" ng-repeat="gif in $parent.results">
-                <div class="search-wrapper">
-                    <div class="search-content">
+                <div class="image-wrapper">
+                    <div class="image-content">
                         <gif thumb="{{gif.thumbnailUrl}}" source="{{gif.url}}">
                             <button ui-sref="tab.search.share({url: gif.url})" class="button icon ion-share button-positive btn__share"></button>
                         </gif>
@@ -19,5 +19,16 @@
             </div>
         </ion-list>
         <ion-infinite-scroll ng-if="$parent.canLoadMore()" on-infinite="$parent.loadMore()" distance="1%"></ion-infinite-scroll>
+        <div class="card" ng-if="noSearch">
+            <div class="item item-text-wrap text-center">
+                <strong>Search to share gifs</strong><br />
+                Enter search terms in the search bar to find gifs to share with friends!
+            </div>
+        </div>
+        <div class="card" ng-if="noResults">
+            <div class="item item-text-wrap text-center">
+                <strong>Your search terms didn't have any results</strong>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

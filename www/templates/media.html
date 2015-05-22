@@ -5,17 +5,26 @@
             <source ng-if="webm" ng-src='{{webm}}' type='video/webm' />
             <source ng-if="ogg" ng-src='{{ogg}}' type='video/ogg' />
         </video>
-        <div class="search__gif" ng-if='loadError && playing'>
+        <div class="media__gif" ng-if='loadError && playing'>
             <div class='media-image' ng-style='image'></div>
         </div>
         <div ng-transclude></div>
     </div>
     <div ng-if="isImage && !isImgurGif" class="media__gif">
-        <div class='media-image' ng-style='image'></div>
+        <div class="image-wrapper">
+            <div class="image-content">
+                <div class='media-image' ng-style='image'></div>
+            </div>
+        </div>
         <div ng-transclude></div>
     </div>
-    <div ng-if="!isVideo && !isImage && !hidePage">
+    <div ng-if="!isVideo && !isImage && !hidePage && !isInAppBrowser">
         <iframe class="webPageFrame" ng-src="{{source}}" ng-if="!isWindows"></iframe>
         <x-ms-webview class="webPageFrame" ng-src="{{source}}" ng-if="isWindows"></x-ms-webview>
+    </div>
+    <div ng-if="isInAppBrowser">
+        <button class="button button-block button-positive" style="margin-top: 50px;" ng-click="showInAppBrowser()">
+            <strong>This site uses https</strong><br />Click here to use the in-app browser
+        </button>
     </div>
 </div>

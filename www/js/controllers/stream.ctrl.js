@@ -9,7 +9,7 @@
     $scope.canLoadMore = true;
 
     $scope.load = function () {
-        rest.one("api/stream", $scope.key).getList('links', { page: $scope.currentPage, limit: 20 }).then(function (response) {
+        rest.one("api/stream", $scope.key.toLowerCase()).getList('links', { page: $scope.currentPage, limit: 20 }).then(function (response) {
             /*for (var i = 0; i < values.length; i += 1) {
             values[i].createdDate = moment(values[i].createdDate, settings.dateFormat).format("M/D/YYYY h:mm a")
         }*/
@@ -26,6 +26,10 @@
             $timeout(function () {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             }, 500);
+        }, function() {
+            $scope.noResults = true;
+            $scope.canLoadMore = false;
+            $scope.$broadcast('scroll.infiniteScrollComplete');
         });
 
         $scope.currentPage += 1;

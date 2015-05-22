@@ -35,6 +35,6 @@
     }
 
     return {
-        callback: function() {}
+        callback: function () { }
     };
 })();

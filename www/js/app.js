@@ -118,6 +118,7 @@ angular.module('linkslap', [
     })
     .state('tab.search.share', {
         authenticate: true,
+        cache: false,
         url: '/share/:url',
         views: {
             'tab-search@tab': {
