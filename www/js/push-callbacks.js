@@ -35,7 +35,7 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
             }, false);
         }
     });
-    $window.windowsEcb = function (json) {
+    $window.windowsEcb = function(json) {
         $rootScope.$apply(function() {
             addToStream(json);
         });
@@ -58,6 +58,38 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
 
         var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
         toastNotifier.show(toast);
-    }
+    };
+
+    $window.androidEcb = function(json) {
+        switch (json.event) {
+        case 'message':
+            // if this flag is set, this notification happened while we were in the foreground.
+            // you might want to play a sound to get the user's attention, throw up a dialog, etc.
+            if (json.foreground) {
+                // do all the things
+            } else { // otherwise we were launched because the user touched a notification in the notification tray.
+                if (json.coldstart) {
+
+                } else {
+
+                }
+            }
+
+            //$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+            //Only works for GCM
+            //$("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+            //Only works on Amazon Fire OS
+            //$status.append('<li>MESSAGE -> TIME: ' + e.payload.timeStamp + '</li>');
+            break;
+
+        case 'error':
+            //$("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+            break;
+
+        default:
+            //$("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+            break;
+        }
+    };
 }]);
 

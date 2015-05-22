@@ -8,6 +8,10 @@ function ($window, $ionicPlatform, $q, rest, $localStorage) {
         channelDefer = $q.defer();
 
     function successHandler(result) {
+        if (!result.uri) {
+            return;
+        }
+
         channelDefer.resolve(result);
         console.log('registered###' + result.uri);
         // send uri to your notification server
@@ -16,6 +20,19 @@ function ($window, $ionicPlatform, $q, rest, $localStorage) {
         channelDefer.reject(error);
         console.log('error###' + error);
     }
+
+    $window.handleAndroid = function (response) {
+        if (response.event === 'registered') {
+            if (response.regid.length) {
+                channelDefer.resolve({ uri: '' });
+                deviceToken = response.regid;
+            } else {
+                channelDefer.reject("No registration ID");
+            }
+        } else if (window.androidEcb) {
+            window.androidEcb(response);
+        }
+    };
 
     function iosTokenHandler(token) {
         deviceToken = token;
@@ -35,8 +52,8 @@ function ($window, $ionicPlatform, $q, rest, $localStorage) {
                 successHandler,
                 errorHandler,
                 {
-                    "senderID": "replace_with_sender_id",
-                    "ecb": "androidEcb"
+                    "senderID": "254306377364",
+                    "ecb": "handleAndroid"
                 });
         } else if (device.platform == 'windows') {
             platform = 'windows';
