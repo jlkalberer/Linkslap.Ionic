@@ -75,7 +75,7 @@
                     }
 
                     // Use InAppBrowser if https
-                    scope.isInAppBrowser = !scope.isWindows && !scope.isImage && scope.src.indexOf('https://');
+                    scope.isInAppBrowser = !scope.isWindows && !scope.isImage && scope.src.indexOf('https://') > -1;
                 });
 
                 scope.showInAppBrowser = function() {

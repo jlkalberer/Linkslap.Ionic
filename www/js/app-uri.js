@@ -1,7 +1,7 @@
 ﻿angular.module('linkslap')
 .run([
-'$rootScope', '$ionicPlatform', 'Restangular', '$ionicPopup', '$localStorage', '$ionicHistory', '$state',
-function ($rootScope, $ionicPlatform, rest, $ionicPopup, storage, $ionicHistory, $state) {
+'$rootScope', '$ionicPlatform', '$window', 'Restangular', '$ionicPopup', '$localStorage', '$ionicHistory', '$state',
+function ($rootScope, $ionicPlatform, $window, rest, $ionicPopup, storage, $ionicHistory, $state) {
     'use strict';
 
     function getQueryString(query) {
@@ -58,9 +58,11 @@ function ($rootScope, $ionicPlatform, rest, $ionicPopup, storage, $ionicHistory,
                     storage.subscriptions = [];
                 }
 
-                storage.subscriptions = _.without(storage.subscriptions, _.findWhere(storage.subscriptions, { id: subscription.id }));
-                storage.subscriptions.push(subscription);
-                storage.subscriptions = _.sortBy(storage.subscriptions, 'id');
+                if (!_.findWhere(storage.subscriptions, { id: subscription.id })) {
+                    subscription.newLinks = [];
+                    storage.subscriptions.push(subscription);
+                    storage.subscriptions = _.sortBy(storage.subscriptions, 'id');
+                }
 
                 // navigate to stream
                 $ionicHistory.nextViewOptions({
@@ -84,7 +86,11 @@ function ($rootScope, $ionicPlatform, rest, $ionicPopup, storage, $ionicHistory,
         }
     }
 
-    if (typeof WinJS !== 'undefined') {
-        WinJS.Application.addEventListener("activated", activatedHandler, false);
-    }
+    $ionicPlatform.ready(function() {
+        if (device.platform == 'windows') {
+            WinJS.Application.addEventListener("activated", activatedHandler, false);
+        } else {
+            $window.handleOpenURL = addStream;
+        }
+    });
 }]);

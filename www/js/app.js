@@ -41,7 +41,7 @@ angular.module('linkslap', [
     });
 
     share.callback = function (url) {
-        $ionicPlatform(function() {
+        $ionicPlatform.ready(function () {
             if (!auth.isLoggedIn()) {
                 return;
             }
@@ -76,8 +76,8 @@ angular.module('linkslap', [
 })*/
 .config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
 
-    //RestangularProvider.setBaseUrl('https://linkslap.me/');
-    RestangularProvider.setBaseUrl('http://localhost:50328/');
+    RestangularProvider.setBaseUrl('https://linkslap.me/');
+    //RestangularProvider.setBaseUrl('http://localhost:50328/');
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router

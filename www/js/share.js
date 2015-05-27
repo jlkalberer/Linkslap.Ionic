@@ -34,6 +34,16 @@
         WinJS.Application.addEventListener("shareready", shareReady, false);
     }
 
+    // Hack but I don't want to try injecting angular shit...
+    document.addEventListener("deviceready", function () {
+        window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, share.callback);
+
+        window.plugins.webintent.onNewIntent(function () {
+            window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, share.callback);
+        });
+    });
+
+
     return {
         callback: function () { }
     };

@@ -11,6 +11,10 @@
                         {
                             "xml": "<Extension Category=\"windows.backgroundTasks\" StartPage=\"www\\push-backgroundTask.js\"><BackgroundTasks><Task Type=\"pushNotification\" /></BackgroundTasks></Extension>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<Extension Category=\"windows.protocol\" StartPage=\"www/index.html\"><Protocol Name=\"linkslap\" /></Extension>",
+                            "count": 1
                         }
                     ]
                 }
@@ -21,6 +25,10 @@
                         {
                             "xml": "<Extension Category=\"windows.backgroundTasks\" StartPage=\"www\\push-backgroundTask.js\"><BackgroundTasks><Task Type=\"pushNotification\" /></BackgroundTasks></Extension>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<Extension Category=\"windows.protocol\" StartPage=\"www/index.html\"><Protocol Name=\"linkslap\" /></Extension>",
+                            "count": 1
                         }
                     ]
                 }
@@ -30,6 +38,10 @@
                     "/Package/Applications/Application/Extensions": [
                         {
                             "xml": "<Extension Category=\"windows.backgroundTasks\" StartPage=\"www\\push-backgroundTask.js\"><BackgroundTasks><Task Type=\"pushNotification\" /></BackgroundTasks></Extension>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<Extension Category=\"windows.protocol\" StartPage=\"www/index.html\"><Protocol Name=\"linkslap\" /></Extension>",
                             "count": 1
                         }
                     ]
@@ -57,6 +69,13 @@
             "PACKAGE_NAME": "Linkslap"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "Linkslap"
+        },
+        "nl.x-services.plugins.launchmyapp": {
+            "URL_SCHEME": "linkslap",
+            "PACKAGE_NAME": "Linkslap"
+        },
+        "com.borismus.webintent": {
             "PACKAGE_NAME": "Linkslap"
         }
     },

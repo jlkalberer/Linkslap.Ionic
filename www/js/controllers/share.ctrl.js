@@ -8,7 +8,7 @@
 '$state',
 '$timeout',
 function ($scope, rest, $stateParams, storage, $ionicHistory, $state, $timeout) {
-    $scope.url = $stateParams.url = "https://timenewsfeed.files.wordpress.com/2013/05/nf_bacon_longevity_0508.jpg?w=480&h=320&crop=1";
+    $scope.url = $stateParams.url;
     $scope.streams = _.pluck(storage.subscriptions, 'stream');
 
     $scope.share = function () {

@@ -10,6 +10,15 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
         sub.newLinks.push(link.id);
     }
 
+    function followLink(link) {
+        $ionicHistory.nextViewOptions({
+            historyRoot: true
+        });
+
+        $state.go('tab.streams.stream.links', { streamKey: link.streamKey, linkId: link.id, link: link });
+    }
+
+
     $ionicPlatform.ready(function() {
         if (!$window.device) {
             return;
@@ -27,11 +36,7 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
 
                 var link = JSON.parse(eventObject.detail.arguments);
 
-                $ionicHistory.nextViewOptions({
-                    historyRoot: true
-                });
-
-                $state.go('tab.streams.stream.links', { streamKey: link.streamKey, linkId: link.id, link: link });
+                followLink(link);
             }, false);
         }
     });
@@ -60,36 +65,16 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
         toastNotifier.show(toast);
     };
 
-    $window.androidEcb = function(json) {
-        switch (json.event) {
-        case 'message':
-            // if this flag is set, this notification happened while we were in the foreground.
-            // you might want to play a sound to get the user's attention, throw up a dialog, etc.
-            if (json.foreground) {
-                // do all the things
-            } else { // otherwise we were launched because the user touched a notification in the notification tray.
-                if (json.coldstart) {
-
-                } else {
-
-                }
-            }
-
-            //$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
-            //Only works for GCM
-            //$("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
-            //Only works on Amazon Fire OS
-            //$status.append('<li>MESSAGE -> TIME: ' + e.payload.timeStamp + '</li>');
-            break;
-
-        case 'error':
-            //$("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
-            break;
-
-        default:
-            //$("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
-            break;
+    $window.androidEcb = function (json) {
+        if (json.event !== 'message') {
+            return;
         }
+
+        if (json.foreground) {
+            // do stuff...?
+        }
+
+        followLink(json.payload.payload);
     };
 }]);
 
