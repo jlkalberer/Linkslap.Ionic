@@ -10,7 +10,8 @@ angular.module('linkslap', [
     'linkslap.directives',
     'ngStorage',
     'restangular',
-    'img-src-ondemand'
+    'img-src-ondemand',
+    'angularMoment'
 ])
 
 .run(function ($ionicPlatform, $rootScope, auth, $ionicHistory, $state, actionSheet) {
@@ -65,7 +66,7 @@ angular.module('linkslap', [
         }
     });
 })
-.config(function($sceProvider) {
+.config(function ($sceProvider) {
     $sceProvider.enabled(false);
 })
 .config(function ($compileProvider) {
@@ -107,7 +108,6 @@ angular.module('linkslap', [
 
     .state('tab.search', {
         authenticate: true,
-        //cache: false,
         url: '/search',
         views: {
             'tab-search': {
@@ -130,7 +130,6 @@ angular.module('linkslap', [
 
     .state('tab.streams', {
         authenticate: true,
-        cache: false,
         url: '/streams',
         views: {
             'tab-streams': {
@@ -141,7 +140,6 @@ angular.module('linkslap', [
     })
     .state('tab.streams.stream', {
         authenticate: true,
-        cache: false,
         url: '/stream/:streamKey',
         views: {
             'tab-streams@tab': {

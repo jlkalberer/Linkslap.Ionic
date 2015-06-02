@@ -1,9 +1,10 @@
 ﻿<ion-view view-title="{{stream.name}}">
-    <ion-content>
+    <ion-content keep-scroll>
         <ion-list>
             <ion-item ng-repeat="link in $parent.links" ng-class="{'bold' : link.isNew}" type="item-text-wrap" ui-sref="tab.streams.stream.links({ streamKey: link.streamKey, linkId: link.id, link: link })">
                 <h2>{{link.comment || link.url}}</h2>
-                <p>Slapped by {{link.userName}}</p>
+
+                <p>Slapped by {{link.userName}} <em>{{ $parent.formatDate(link.createdDate); }}</em></p>
             </ion-item>
         </ion-list>
         <ion-infinite-scroll ng-if="$parent.canLoadMore" on-infinite="$parent.load()" distance="1%"></ion-infinite-scroll>

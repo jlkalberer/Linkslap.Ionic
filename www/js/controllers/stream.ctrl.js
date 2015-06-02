@@ -8,14 +8,28 @@
     $scope.links = [];
     $scope.canLoadMore = true;
 
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 5; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
+    $scope.formatDate = function(date) {
+        return moment(moment.utc(date, "YYYY-MM-DDTHH:mm:ss.SSSZ").toDate()).format("M/D/YYYY h:mm a");
+    }
+
     $scope.load = function () {
-        rest.one("api/stream", $scope.key.toLowerCase()).getList('links', { page: $scope.currentPage, limit: 20 }).then(function (response) {
+        rest.one("api/stream", $scope.key.toLowerCase()).getList('links', { page: $scope.currentPage, limit: 20, v: makeid() }).then(function (response) {
             /*for (var i = 0; i < values.length; i += 1) {
             values[i].createdDate = moment(values[i].createdDate, settings.dateFormat).format("M/D/YYYY h:mm a")
         }*/
 
-            _.each(response, function(link) {
-                if (_.find(subscription.newLinks, function(id) { return id === link.id })) {
+            _.each(response, function (link) {
+                if (_.find(subscription.newLinks, function (id) { return id === link.id })) {
                     link.isNew = true;
                 }
             });
@@ -26,7 +40,7 @@
             $timeout(function () {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             }, 500);
-        }, function() {
+        }, function () {
             $scope.noResults = true;
             $scope.canLoadMore = false;
             $scope.$broadcast('scroll.infiniteScrollComplete');

@@ -18,7 +18,7 @@
         </div>
         <div ng-transclude></div>
     </div>
-    <div ng-if="!isVideo && !isImage && !hidePage && !isInAppBrowser">
+    <div ng-if="!isVideo && !isImage && !hidePage && !isImgurGif && !isInAppBrowser">
         <iframe class="webPageFrame" ng-src="{{source}}" ng-if="!isWindows"></iframe>
         <x-ms-webview class="webPageFrame" ng-src="{{source}}" ng-if="isWindows"></x-ms-webview>
     </div>

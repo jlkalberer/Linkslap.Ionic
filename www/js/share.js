@@ -32,16 +32,16 @@
     if (typeof WinJS !== 'undefined') {
         WinJS.Application.addEventListener("activated", activatedHandler, false);
         WinJS.Application.addEventListener("shareready", shareReady, false);
-    }
-
-    // Hack but I don't want to try injecting angular shit...
-    document.addEventListener("deviceready", function () {
-        window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, share.callback);
-
-        window.plugins.webintent.onNewIntent(function () {
+    } else {
+        // Hack but I don't want to try injecting angular shit...
+        document.addEventListener("deviceready", function () {
             window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, share.callback);
+
+            window.plugins.webintent.onNewIntent(function () {
+                window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, share.callback);
+            });
         });
-    });
+    }
 
 
     return {

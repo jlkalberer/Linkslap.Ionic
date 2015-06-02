@@ -11,21 +11,22 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
     }
 
     function followLink(link) {
+        $ionicHistory.clearCache();
+        $ionicHistory.clearHistory();
         $ionicHistory.nextViewOptions({
             historyRoot: true
         });
 
         $state.go('tab.streams.stream.links', { streamKey: link.streamKey, linkId: link.id, link: link });
     }
-
-
-    $ionicPlatform.ready(function() {
+    
+    $ionicPlatform.ready(function () {
         if (!$window.device) {
             return;
         }
 
         if (device.platform == 'windows') {
-            WinJS.Application.addEventListener("activated", function(eventObject) {
+            WinJS.Application.addEventListener("activated", function (eventObject) {
                 if (eventObject.detail.kind !== Windows.ApplicationModel.Activation.ActivationKind.launch) {
                     return;
                 }
@@ -40,8 +41,8 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
             }, false);
         }
     });
-    $window.windowsEcb = function(json) {
-        $rootScope.$apply(function() {
+    $window.windowsEcb = function (json) {
+        $rootScope.$apply(function () {
             addToStream(json);
         });
 

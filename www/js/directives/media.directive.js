@@ -8,7 +8,7 @@
             }
             url = url.split('?')[0];
 
-            return url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null;
+            return url.toLowerCase().match(/\.(jpeg|jpg|png)$/) != null;
         }
 
         function isVideo(url) {
@@ -21,7 +21,8 @@
         }
 
         function isImgurGif(url) {
-            return url && url.toLowerCase().indexOf('imgur.com') > -1;
+            return url && url.toLowerCase().indexOf('imgur.com') > -1 &&
+                url.toLowerCase().match(/\.(gif)$/) != null;
         }
 
         return {
@@ -54,7 +55,7 @@
 
 
                     if (scope.isImgurGif) {
-                        var src = scope.src.replace('.gif', '');
+                        var src = scope.src.substring(0, scope.src.indexOf('.gif'));
                         scope.mp4 = $sce.trustAsResourceUrl(src + '.mp4');
                         scope.webm = $sce.trustAsResourceUrl(src + '.webm');
                         scope.ogg = $sce.trustAsResourceUrl(src + '.ogg');
@@ -75,10 +76,10 @@
                     }
 
                     // Use InAppBrowser if https
-                    scope.isInAppBrowser = !scope.isWindows && !scope.isImage && scope.src.indexOf('https://') > -1;
+                    scope.isInAppBrowser = !scope.isWindows && !scope.isImgurGif && !scope.isImage && scope.src.indexOf('https://') > -1;
                 });
 
-                scope.showInAppBrowser = function() {
+                scope.showInAppBrowser = function () {
                     window.open(scope.src, '_blank', 'location=yes');
                 };
             }

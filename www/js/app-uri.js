@@ -74,23 +74,7 @@ function ($rootScope, $ionicPlatform, $window, rest, $ionicPopup, storage, $ioni
         });
     }
 
-    function activatedHandler(eventObject) {
-        if (eventObject.detail.kind == Windows.ApplicationModel.Activation.ActivationKind.protocol) {
-            var uri = eventObject.detail.uri;
-
-            if (!uri) {
-                return;
-            }
-
-            addStream(uri.absoluteUri);
-        }
-    }
-
-    $ionicPlatform.ready(function() {
-        if (device.platform == 'windows') {
-            WinJS.Application.addEventListener("activated", activatedHandler, false);
-        } else {
-            $window.handleOpenURL = addStream;
-        }
+    $ionicPlatform.ready(function () {
+        $window.handleOpenURL = addStream;
     });
 }]);
