@@ -2,12 +2,14 @@
 .run(['$window', '$rootScope', '$ionicPlatform', '$localStorage', '$ionicHistory', '$state',
 function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
     function addToStream(link) {
-        var sub = _.find(storage.subscriptions, function (subscription) {
-            return subscription.stream.key === link.streamKey;
-        });
+        $rootScope.$apply(function () {
+            var sub = _.find(storage.subscriptions, function (subscription) {
+                return subscription.stream.key === link.streamKey;
+            });
 
-        link.newLink = true;
-        sub.newLinks.push(link.id);
+            link.newLink = true;
+            sub.newLinks.push(link.id);
+        });
     }
 
     function followLink(link) {
@@ -19,7 +21,7 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
 
         $state.go('tab.streams.stream.links', { streamKey: link.streamKey, linkId: link.id, link: link });
     }
-    
+
     $ionicPlatform.ready(function () {
         if (!$window.device) {
             return;
@@ -42,9 +44,7 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
         }
     });
     $window.windowsEcb = function (json) {
-        $rootScope.$apply(function () {
-            addToStream(json);
-        });
+        addToStream(json);
 
         var notifications = Windows.UI.Notifications;
 
@@ -71,11 +71,13 @@ function ($window, $rootScope, $ionicPlatform, storage, $ionicHistory, $state) {
             return;
         }
 
-        if (json.foreground) {
-            // do stuff...?
-        }
+        var payload = json.payload.payload;
 
-        followLink(json.payload.payload);
+        if (json.foreground) {
+            //followLink(payload);
+        } else {
+            addToStream(payload);
+        }
     };
 }]);
 
